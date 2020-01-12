@@ -6,7 +6,7 @@
     <p> <%= time_ago_in_words(@entry.created_at) %> ago</p>
     <p> <%= @entry.content %> </p>
 </div>
-<% if current_user %>
+<% if current_user && current_user.id == 1 %>
   <button><%= link_to "Edit post", edit_entry_path(@entry) %></button>
   <button><%= link_to "Delete post", entry_path(@entry), method: :delete, data: { confirm: "Are you sure what you're doing?" } %></button>
 <% end %>
