@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :find_entry, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @entries = Entry.all.order(created_at: :desc)

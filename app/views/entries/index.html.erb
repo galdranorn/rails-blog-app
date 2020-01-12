@@ -1,5 +1,8 @@
 <h1>Entries:</h1>
-<%= link_to 'Add new post', new_entry_path %>
+<% if current_user %>
+  <%= link_to 'Add new post', new_entry_path %>
+<% end %>
+
 <%= link_to 'Come back to main page', root_path %>
 <div>
   <% @entries.each do |entry| %>
