@@ -1,0 +1,10 @@
+<h1>Entries:</h1>
+<%= link_to 'Add new post', new_entry_path %>
+<%= link_to 'Come back to main page', root_path %>
+<div>
+  <% @entries.each do |entry| %>
+    <h2> <%= link_to entry.title, "/entries/#{entry.id}" %> </h2>
+    <p> <%= time_ago_in_words(entry.created_at) %> ago</p>
+    <p> <%= entry.content %> </p>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Little Webapp: Coding Is Magic</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>My Rails Girls Diary</h1>
+    <%= link_to 'Add new post', new_entry_path %>
+
+    <div>
+      <% @entries.each do |entry| %>
+        <h2> <%= link_to entry.title, "/entries/#{entry.id}" %> </h2>
+        <p> <%= time_ago_in_words(entry.created_at) %> ago</p>
+        <p> <%= entry.content %> </p>
+      <% end %>
+    </div>
+    <button><%= link_to("See all entries", entries_path) %></button>
+
+    <div>
+      <h1>My favourite websites</h1>
+      <ul>
+        <% @websites.each do |url, name| %>
+          <li><a href="<%= url %>"><%= name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <img src="https://ahk.pl/fileadmin/_processed_/3/0/csm_maleWroclaw_69ea7eb458.jpg" />
+  </body>
+</html>

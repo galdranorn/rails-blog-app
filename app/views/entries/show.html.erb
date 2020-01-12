@@ -1,0 +1,10 @@
+<h1>Entry:</h1>
+<button><%= link_to "Come back to homepage", root_path %></button>
+<button><%= link_to "Come back to all posts", entries_path %></button>
+<div>
+    <h2> <%= @entry.title %> </h2>
+    <p> <%= time_ago_in_words(@entry.created_at) %> ago</p>
+    <p> <%= @entry.content %> </p>
+</div>
+<button><%= link_to "Edit post", edit_entry_path(@entry) %></button>
+<button><%= link_to "Delete post", entry_path(@entry), method: :delete, data: { confirm: "Are you sure what you're doing?" } %></button>
